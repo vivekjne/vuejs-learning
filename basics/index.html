@@ -17,7 +17,7 @@
 
         <div style="margin:16px">
             <div v-if="seen" style="background-color: red;width: 200px;height: 200px;margin-bottom: 20px;"></div>
-            <button v-on:click="toggleDiv">Click to toggle div</button>
+            <button @click="toggleDiv">Click to toggle div</button>
         </div>
 
         <ul>
@@ -34,6 +34,12 @@
                 <input v-model="movieName">
                 <button type="submit">Add movie</button>
             </form>
+        </div>
+
+        <!-- template syntax -->
+        <span v-html="htmlMessage"></span>
+        <div>
+            <span v-html="movieListMessage"></span>
         </div>
     </div>
 

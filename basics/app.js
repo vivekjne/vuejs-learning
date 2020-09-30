@@ -12,7 +12,8 @@ const CounterApp = {
             {id:5,name:"Star Wars 5"},
 
         ],
-        movieName:""
+        movieName:"",
+        htmlMessage:"<h2>This is a heading using <span style='color:green;'>v-html</span></h2>"
       }
     },
     mounted() {
@@ -30,6 +31,20 @@ const CounterApp = {
         onSubmit(e){
             this.moviesList.push({id:this.moviesList.length,name:this.movieName})
             this.movieName = ""
+        }
+    },
+    computed:{
+        movieListMessage(){
+           if(this.moviesList.length<3){
+               return "You are not much of a <span style='color:red;background:black'><em>star wars</em></span> fan"
+           }else if(this.moviesList.length==3){
+            return "You only like the original <span style='color:orange;background:black'><em>star wars</em></span> movies"
+           }else if(this.moviesList.length>3 && this.moviesList.length<=6){
+            return "You are a <span style='color:yellow;background:black'><em>star wars</em></span> fan."
+           }
+           else if(this.moviesList.length>6){
+            return "You are a die hard <span style='color:green;background:black'><em>star wars</em></span> fan."
+           }
         }
     }
   }
